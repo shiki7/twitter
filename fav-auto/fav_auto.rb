@@ -14,7 +14,7 @@ interval=0 #間隔
 
 user = ARGV[0] if ARGV[0]
 num = ARGV[1] if ARGV[1]
-interval = ARGV[1] if ARGV[2]
+interval = ARGV[2] if ARGV[2]
 target_list=[]
 
 #favするターゲットツイートを取得 (リプは弾く)
@@ -25,9 +25,11 @@ end
 p '遡り数='+num.to_s
 p 'ふぁぼ数='+target_list.length.to_s
 
+interval=interval.to_i
+
 #ふぁぼを実行
 target_list.each do |target|
   client.favorite(target)
-  sleep interval.to_i
+  sleep interval
 end
 
